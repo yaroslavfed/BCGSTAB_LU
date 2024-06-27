@@ -20,6 +20,10 @@ public:
                      std::vector<double>& res,
                      std::vector<double>& b);
 
+    static double check_inaccuracy(std::vector<double>& q,
+                                   const char* str,
+                                   int n);
+
     void LU();
 
     std::vector<double> mult(const std::vector<double>& v);
@@ -29,7 +33,7 @@ public:
 private:
     std::vector<double> di_n, ggu_n, ggl_n, r, p, di, gg;
     std::vector<int> ig, jg;
-    int maxIter = 1000;
+    int maxIter = 10000;
     double eps = 1e-15;
 };
 

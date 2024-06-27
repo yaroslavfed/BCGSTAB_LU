@@ -91264,13 +91264,3 @@
 3.225000E+02
 3.300000E+02
 3.375000E+02
-
-Private committed memory: 28987392 B
-Working set: 33497088 B
-Private working set: 0 B
-Heap #0 size: 27753515 B
-Heap #1 size: 0 B
-Heap #2 size: 10929 B
-
-File has been written
-The time: 3.964000 seconds

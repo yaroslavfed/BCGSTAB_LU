@@ -158044,13 +158044,3 @@
 3.289286E+02
 3.332143E+02
 3.375000E+02
-
-Private committed memory: 40837120 B
-Working set: 45314048 B
-Private working set: 0 B
-Heap #0 size: 39506567 B
-Heap #1 size: 0 B
-Heap #2 size: 10929 B
-
-File has been written
-The time: 8.961000 seconds

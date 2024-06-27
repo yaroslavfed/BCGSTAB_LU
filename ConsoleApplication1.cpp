@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     clock_t end = clock();
 
     std::ofstream out;
-    out.open("output_158046.txt");
+    out.open("output_47355.txt");
     if (out.is_open())
     {
         for (const auto value : q)
@@ -41,11 +41,12 @@ int main(int argc, char* argv[])
             out << std::uppercase << std::scientific << value << '\n';
         }
     }
-    out.close(); 
+    out.close();
     std::cout << "File has been written" << '\n';
-
 
     double seconds = (double)(end - start) / CLOCKS_PER_SEC;
     printf("The time: %f seconds\n", seconds);
+
+    std::cout << solver::check_inaccuracy(q, "x1.txt", N) << '\n';
     return 0;
 }

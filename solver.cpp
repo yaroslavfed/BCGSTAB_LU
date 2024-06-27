@@ -1,5 +1,8 @@
 ﻿#include "solver.h"
 
+#include <fstream>
+#include <iostream>
+
 /// <summary>LU(sq) разложение</summary>
 void solver::LU()
 {
@@ -156,6 +159,8 @@ std::vector<double> solver::BCGSTAB(
 
         nev = sqrt(r * r);
     }
+    std::cout << "iterations: " << iter << '\n';
+
     r.clear();
     p.clear();
     z_sl.clear();
@@ -163,4 +168,28 @@ std::vector<double> solver::BCGSTAB(
     temp1.clear();
     temp2.clear();
     return q;
+}
+
+double solver::check_inaccuracy(std::vector<double>& q, const char* str, int n)
+{
+    std::ifstream in(str);
+    std::vector<double> pardiso_solve = std::vector<double>();
+
+    if (in.is_open())
+    {
+        double data;
+        while (in >> data)
+        {
+            pardiso_solve.push_back(data);
+        }
+    }
+    in.close();
+
+    double s1 = 0, s2 = 0;
+    for (size_t i = 0; i < n; i++)
+    {
+        s1 += (pardiso_solve[i] - q[i]) * (pardiso_solve[i] - q[i]);
+        s2 += pardiso_solve[i] * pardiso_solve[i];
+    }
+    return s1 / s2;
 }
